@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -95,19 +95,19 @@ class LoginForm extends StatelessWidget {
                       child: Text(
                         "Inciar Sesión",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 18,
                           fontFamily: 'Poppins-Medium.ttf',
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      color: Color(0xFFBC1F26),
+                      color: Color(0xFFFF9E80),
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(15.0),
-                          side: BorderSide(color: Color(0xFFBC1F26))),
+                          side: BorderSide(color: Color(0xFFFF9E80))),
                     ),
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Color(0xFFF2F3F7)),
+                        shape: BoxShape.circle, color: Color(0xFF000000)),
                   ),
                   SizedBox(
                     height: 10,
