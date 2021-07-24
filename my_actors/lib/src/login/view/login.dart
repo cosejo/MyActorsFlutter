@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class LoginView extends StatelessWidget {
+import 'package:my_actors/src/controller.dart';
+import 'package:my_actors/src/view.dart';
+
+
+class LoginView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => new _LoginView();
+}
+
+class _LoginView extends StateMVC<LoginView> {
+  LoginController viewController = LoginController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -47,6 +60,7 @@ class LoginView extends StatelessWidget {
                           fontSize: defaultFontSize),
                       hintText: "Nombre de usuario",
                     ),
+                    controller: nameController,
                   ),
                   SizedBox(
                     height: 15,
@@ -80,6 +94,7 @@ class LoginView extends StatelessWidget {
                       ),
                       hintText: "Contraseña",
                     ),
+                    controller: passwordController,
                   ),
                   SizedBox(
                     height: 15,
@@ -89,8 +104,7 @@ class LoginView extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    child: RaisedButton(
-                      padding: EdgeInsets.all(17.0),
+                    child: ElevatedButton(
                       onPressed: () {},
                       child: Text(
                         "Inciar Sesión",
@@ -101,13 +115,13 @@ class LoginView extends StatelessWidget {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      color: Color(0xFFFF9E80),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(15.0),
-                          side: BorderSide(color: Color(0xFFFF9E80))),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.orangeAccent),
+                      ),
+                      onLongPress: (){
+                        viewController.login(nameController.text, passwordController.text);
+                      },
                     ),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Color(0xFF000000)),
                   ),
                   SizedBox(
                     height: 10,
